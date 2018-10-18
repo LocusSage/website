@@ -3,6 +3,11 @@ import App from './App.vue'
 import router from '@/router'
 import store from '@/store'
 import './registerServiceWorker'
+import '@/../node_modules/centurion-css/centurion/centurion.css'
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
+
+Vue.component('icon', Icon)
 
 Vue.config.productionTip = false
 
