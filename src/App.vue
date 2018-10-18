@@ -5,4 +5,9 @@
 </template>
 
 <style lang="scss">
+#app {
+  font-smooth: always;
+  text-rendering: optimizeLegibility !important;
+-webkit-font-smoothing: subpixel-antialiased !important;
+}
 </style>
