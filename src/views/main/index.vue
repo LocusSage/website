@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
   main {
-    padding-top: 150px;
+    padding-top: 65px;
     background: white;
   }
 </style>
