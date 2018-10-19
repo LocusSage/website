@@ -61,6 +61,7 @@ export default {
     position: fixed;
     width: 100%;
     background: white;
+    z-index: 99;
   }
 
   .wrapper {

@@ -17,6 +17,9 @@
         </form>
       </div>
     </div>
+    <div class="span-1 flex align-right">
+      <img src="@/assets/images/physician.png" width="120%" height="120%" alt="">
+    </div>
   </div>  
 </template>
 <script>
@@ -62,7 +65,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .hero {
-  padding: 50px 0px 120px; 
+  padding: 50px 0px 60px; 
 }
 
 .title h2{
@@ -119,5 +122,9 @@ form button {
   right: 250px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+img {
+  transform: translate(150px, -50px)
 }
 </style>
