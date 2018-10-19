@@ -10,6 +10,7 @@
 <script>
 
 import Flickity from 'vue-flickity'
+import imagesLoaded from 'flickity-imagesloaded'
 
 export default {
   components: {
@@ -17,12 +18,14 @@ export default {
   },
   data () {
     return {
+      isLoaded: false,
       flickityOptions: {
         initialIndex: 1,
         autoPlay: 2500,
         prevNextButtons: true,
         pageDots: false,
-        wrapAround: true
+        wrapAround: true,
+        imagesLoaded: true
       }
     }
   }
