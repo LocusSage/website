@@ -1,11 +1,11 @@
 export default {
-  // name: 'Blog',
+  name: 'Blog',
   path: 'blog',
   component: () => import('@/views/pages/blog'),
   children: [
     {
       name: 'Index',
-      path: 'index',
+      path: 'blog',
       component: () => import('@/views/pages/blog/index')
     },
     {
