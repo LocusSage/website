@@ -8,11 +8,8 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-<<<<<<< HEAD
     "babel-loader": "^8.0.4",
-=======
     "axios": "^0.18.0",
->>>>>>> 469f817591a18f81e2cfa1d32baa73df69e1e258
     "centurion-css": "^0.1.36",
     "flickity": "^2.1.2",
     "register-service-worker": "^1.0.0",
