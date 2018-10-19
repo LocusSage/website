@@ -10,7 +10,7 @@
               <span>MedCloud</span>
             </router-link></li>
             <li>Produtos</li>
-            <li><router-link to="{name: 'Blog'}">Blog</router-link></li>
+            <li><router-link :to="{name: 'Blog'}">Blog</router-link></li>
             <li>Receba Atualizações</li>
           </ul>
         </div>
@@ -43,7 +43,6 @@ export default {
     handleScroll: function () {
       console.log(this.lastScrolled, this.scrolled)
       this.scrolled = window.pageYOffset
-      
       if (this.scrolled <= this.lastScrolled) {
         this.lastScrolled = window.pageYOffset
         this.isShowing = true
