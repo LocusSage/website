@@ -33,7 +33,7 @@ export default {
  
 .wrapper {
   min-width: 980px;
-  width: 75%;
+  width: 960px;
   background: white;
 }
 
