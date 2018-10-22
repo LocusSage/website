@@ -3,23 +3,59 @@
   <span class="title">Subscribe</span>
   <p class="text">Our content is regularly updated with news and tips for radiology and medical<br>topics! Keep updates, keep relevant</p>
   <form>
-    <div class="flex align-justify">
-      <input type="email" placeholder="Your email">
-      <icon name="regular/check-circle" scale="2.0"/>
+    <div class="flex align-justify" for="email">
+      <input @input="checkValidity($event); checkLength($event)" placeholder="Your email" type="email" id="email" v-model="email" required>
+      <icon v-if="!validity && hasLength" class="icon wrong" name="regular/times-circle" scale="1.5"/>
+      <icon v-if="validity" class="icon check" name="regular/check-circle" scale="1.5"/>
       <button class="btn btn-subscribe">Subscribe</button>
     </div>
   </form>
 </div>  
 </template>
 <script>
+import axios from 'axios'
 
-export default {}
+export default {
+
+  data () {
+    return {
+      email: '',
+      validity: false,
+      hasLength: false
+    }
+  },
+  methods: {
+    checkValidity: function (inputElement) {
+      this.validity = inputElement.target.checkValidity()
+    },
+    checkLength: function (inputElement) {
+      if (inputElement.target.value.length > 0) {
+        this.hasLength = true
+        return
+      }
+      this.hasLength = false
+    },
+    subscribeToMailChimp: async function (event) {
+      let payload = {
+        email_address: this.email,
+        status: 'subscribed'
+      }
+      axios.post('http://localhost:3000/quasar/mail-chimp/lists/97ce4a39a6/members', payload)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(err => {
+          console.log(err.response)
+        })
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
 
 .subscribe {
- margin: 10px;
+ margin: 20px;
 }
 
 .title {
@@ -34,34 +70,51 @@ export default {}
 .text {
   font-family: 'Graphik';
   font-size: 15px;
-  margin-bottom: 20px;
   color: var(--font-color)
 }
 
-input {
-  height: 50px;
-  font-size: 16px;
-  border-color: var(--medium-gray);
-  &::placeholder {
-    font-size: 16px;
-  }
+form {
+  margin-top: 16px;
 }
 
-svg {
-  position:relative;
-	top: 10px;
-  right: 40px;
+form input{
+  width: 75%;
+  height: 50px; 
+  margin-right: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-color: var(--medium-gray)
+}
+
+form button {
+  background: var(--dark-blue);
+  height: 51px;
+  border-radius: 3px;
+  width: 25%;
+  color: white;
+  font-size: 20px;
+  &:hover {
+    background: var(--blue);
+    cursor: pointer;
+  }
+}
+.wrong {
+  color: red;
+}
+
+.check {
   color: var(--green)
 }
 
-.btn-subscribe {
-  width: 300px;
-  height: 51px;
-  font-size: 20px;
-  background: var(--dark-blue);
-  &:hover {
-    background: var(--blue)
-  }
+.label {
+  position: relative;
+  margin-top: 10px;
+}
+.icon {
+  position: absolute;
+  right: 50px;
+  top: 25px;
+  transform: translateY(-50%);
 }
 
 </style>
