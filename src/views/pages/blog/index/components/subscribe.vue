@@ -111,7 +111,7 @@ form button {
   margin-top: 10px;
 }
 .icon {
-  position: absolute;
+  position: relative;
   right: 50px;
   top: 25px;
   transform: translateY(-50%);
