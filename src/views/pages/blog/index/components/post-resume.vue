@@ -1,24 +1,50 @@
 <template>
 <div>
-  <h3>It's not just for adventurers anymore<br/>you can do it too</h3>
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-  <p>Amanda Gabe</p>
-  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut 
-  laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-  ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-  <span>Under this tags 
-    <a href="#">Lifestyle</a>
-    <a href="#">Travel</a>
-    <a href="#">Roaming</a>
-  </span>
+  <ul>
+    <li v-for="post in posts" :key="post.id">
+      <h3>{{post.title.rendered}}</h3>
+      <div v-if="post._embedded['wp:featuredmedia']">
+				<img :src="post._embedded['wp:featuredmedia'][0].source_url" />
+      </div>
+      <p class="author">{{post._embedded.author[0].name}}</p>
+      <p>{{post.excerpt.rendered}}</p>
+      <span>Under this tags</span>
+    </li>
+  </ul>
 </div>  
 </template>
 <script>
 
-export default {}
+export default {
+  mounted () {
+    console.log(this)
+  },
+  computed: {
+    posts: function () { return this.$store.getters['blog:posts'] }
+  },
+  created: function (post) {
+    this.$store.dispatch('blog:load-data')
+  }
+}
 </script>
 
 <style scoped lang="scss">
+
+ul {
+ list-style-type: none; 
+}
+
+img {
+  height: 500px;
+  width:960px;
+}
+
+.author {
+  font-size: 18px;
+  color: var(--medium-gray);
+  margin-top: 20px;
+   margin-bottom: 20px;
+}
 
 h3 {
   text-align: center;

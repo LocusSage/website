@@ -1,18 +1,10 @@
 <template>
 <div class="carrousel">
   <flickity ref="flickity" :options="flickityOptions">
-    <div class="carousel-cell ">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-      <label class="texto">TESTE</label>
-    </div>
-    <div class="carousel-cell ">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
-      <label class="texto">TESTE2</label>
-    </div>
-    <div class="carousel-cell ">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
-      <h5>What does make people<br> gather togheter?</h5>
-      <label class="texto">A review what moves people</label>
+    <div class="carousel-cell"  v-for="post in posts" :key="post.id">
+      <div v-if="post._embedded['wp:featuredmedia']">
+				<img :src="post._embedded['wp:featuredmedia'][0].source_url" />
+      </div>
     </div>
   </flickity>
   </div>
@@ -39,6 +31,12 @@ export default {
         imagesLoaded: true
       }
     }
+  },
+  computed: {
+    posts: function () { return this.$store.getters['blog:posts'] }
+  },
+  created: function (post) {
+    this.$store.dispatch('blog:load-data')
   }
 }
 </script>
@@ -51,7 +49,10 @@ export default {
 
 .carousel-cell {
   position: absolute;
-  height: 500px;
+}
+
+.carousel-cell img {
+   height: 500px;
 }
 
 h5 {
