@@ -1,13 +1,11 @@
 <template>
-<div class="carrousel">
-  <flickity ref="flickity" :options="flickityOptions">
-    <div class="carousel-cell"  v-for="post in posts" :key="post.id">
-      <div v-if="post._embedded['wp:featuredmedia']">
-				<img :src="post._embedded['wp:featuredmedia'][0].source_url" />
-      </div>
-    </div>
-  </flickity>
+<flickity v-if="Object.keys(posts).length > 0" class="carrousel" ref="flickity" :options="flickityOptions">
+  <div class="carrousel-cell" v-for="post in posts" :key="post.id">
+    <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
+    <h5>{{post.title.rendered}}</h5>
+     <p class="texto">{{post.excerpt.rendered}}</p>
   </div>
+</flickity>
 </template>
 <script>
 
@@ -34,9 +32,6 @@ export default {
   },
   computed: {
     posts: function () { return this.$store.getters['blog:posts'] }
-  },
-  created: function (post) {
-    this.$store.dispatch('blog:load-data')
   }
 }
 </script>
@@ -47,12 +42,13 @@ export default {
   margin-bottom: 50px;
 }
 
-.carousel-cell {
+.carrousel-cell {
   position: absolute;
 }
 
-.carousel-cell img {
-   height: 500px;
+.carrousel-cell img {
+  height: 500px;
+  width: 960px;
 }
 
 h5 {
@@ -65,7 +61,7 @@ h5 {
 
 .texto {
   color: white;
-  position: absolute;
+  position: absolute; 
   font-size: 16px;
   left: 50px;
   top: 400px;

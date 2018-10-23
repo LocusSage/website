@@ -7,7 +7,7 @@
 				<img :src="post._embedded['wp:featuredmedia'][0].source_url" />
       </div>
       <p class="author">{{post._embedded.author[0].name}}</p>
-      <p>{{post.excerpt.rendered}}</p>
+      <p class="texto">{{post.excerpt.rendered}}</p>
       <span>Under this tags</span>
     </li>
   </ul>
@@ -34,6 +34,12 @@ ul {
  list-style-type: none; 
 }
 
+h3 {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Graphik';
+}
+
 img {
   height: 500px;
   width:960px;
@@ -46,10 +52,8 @@ img {
    margin-bottom: 20px;
 }
 
-h3 {
-  text-align: center;
-  font-weight: bold;
-  font-family: 'Graphik';
+.texto {
+  margin-bottom: 50px;
 }
 
 </style>
