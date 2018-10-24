@@ -7,7 +7,6 @@
       <subscribe/>
       <hr/>
       <post-resume/>
-      <hr/>
       <carrousel-post/>
     </div>
   </div>

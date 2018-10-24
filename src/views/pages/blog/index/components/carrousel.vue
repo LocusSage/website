@@ -1,9 +1,11 @@
 <template>
-<flickity v-if="Object.keys(posts).length > 0" class="carrousel" ref="flickity" :options="flickityOptions">
+<flickity v-if="posts.length > 0" class="carrousel" ref="flickity" :options="flickityOptions">
   <div class="carrousel-cell" v-for="post in posts" :key="post.id">
     <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
-    <h5>{{post.title.rendered}}</h5>
-     <p class="texto">{{post.excerpt.rendered}}</p>
+    <div class="text">
+      <h5>{{post.title.rendered}}</h5>
+      <p v-html="post.excerpt.rendered"></p>
+    </div>
   </div>
 </flickity>
 </template>
@@ -22,7 +24,7 @@ export default {
       isLoaded: false,
       flickityOptions: {
         initialIndex: 1,
-        autoPlay: 2500,
+        autoPlay: 5000,
         prevNextButtons: false,
         pageDots: false,
         wrapAround: true,
@@ -37,34 +39,42 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .carrousel {
   position: relative;
   margin-bottom: 50px;
 }
 
-.carrousel-cell {
-  position: absolute;
-}
-
 .carrousel-cell img {
+  opacity: 0.6;
+  margin-top: 20px;
+  margin-right: 10px;
   height: 500px;
   width: 960px;
+  transition: background-size 1s; 
+  -webkit-transition: background-size 1s;
+}
+
+ .carrousel-cell.is-selected img {
+  opacity: 2;
+  margin-top: 5px;
+  height: 530px;
+  
 }
 
 h5 {
-  color: white;
-  position: absolute;
-  font-size: 32px;
-  left: 50px;
-  top: 250px;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.texto {
+.text {
   color: white;
   position: absolute; 
-  font-size: 16px;
-  left: 50px;
-  top: 400px;
+  font-size: 18px;
+  margin-left: 50px;
+  margin-right: 50px;
+  top: 320px;
 }
 
 </style>
