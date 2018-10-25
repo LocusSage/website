@@ -1,10 +1,25 @@
 <template>
 <flickity v-if="posts.length > 0" class="carrousel" ref="flickity" :options="flickityOptions">
   <div class="carrousel-cell" v-for="post in posts" :key="post.id">
-    <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
-    <div class="text">
-      <h5>{{post.title.rendered}}</h5>
-      <p v-html="post.excerpt.rendered"></p>
+    <img class="imgCarrousel" :src="post._embedded['wp:featuredmedia'][0].source_url" />
+    <div class="divAbsolute">
+      <div class="divRelative flex align-justify">
+      <div class="text">
+        <h5>{{post.title.rendered}}</h5>
+        <p>Subtitle</p>
+      </div>
+      <div class="author">
+        <div class="image-container flex align-middle">
+          <div class="circle-image">
+            <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
+          </div>
+          <div>
+            <p class="authorName">{{post._embedded.author[0].name}}</p>
+            <p class="authorDescription">athor {{post._embedded.author[0].description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </flickity>
@@ -43,9 +58,10 @@ export default {
 .carrousel {
   position: relative;
   margin-bottom: 50px;
+  height: 520px;
 }
 
-.carrousel-cell img {
+.carrousel-cell img.imgCarrousel {
   opacity: 0.6;
   margin-top: 20px;
   margin-right: 10px;
@@ -55,26 +71,56 @@ export default {
   -webkit-transition: background-size 1s;
 }
 
- .carrousel-cell.is-selected img {
+ .carrousel-cell.is-selected img.imgCarrousel {
   opacity: 2;
   margin-top: 5px;
   height: 530px;
   
 }
 
-h5 {
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.divAbsolute {
+  width: 960px;
+  position: absolute;
+}
+
+.divRelative {
+  position: relative;
+  margin: 60px;
+  bottom: 240px;
 }
 
 .text {
+  width: 400px;
   color: white;
-  position: absolute; 
-  font-size: 18px;
-  margin-left: 50px;
-  margin-right: 50px;
-  top: 320px;
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 2rem;
+   font-weight: bold;
+  font-family: 'Graphik';
+  margin-bottom: 10px;
+}
+
+.author {
+  margin-top: 70px;
+  color: white;
+}
+
+.circle-image{
+  overflow: hidden;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.circle-image img{
+  height: 50px;
+  width: 50px;
 }
 
 </style>
