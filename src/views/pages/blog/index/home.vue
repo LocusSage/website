@@ -7,24 +7,24 @@
       <subscribe/>
       <hr/>
       <post-resume/>
-      <carrousel-post/>
     </div>
   </div>
 </div>  
 </template> 
 <script>
  
- import carrouselPost from './components/carrousel-post'
  import carrousel from './components/carrousel'
  import postResume from './components/post-resume'
  import subscribe from './components/subscribe'
 
 export default {
    components: {
-     'carrousel-post': carrouselPost,
      'carrousel': carrousel,
      'post-resume': postResume,
      'subscribe': subscribe
+   },
+   created: function () {
+     this.$store.dispatch('blog:load-data')
    }
 }
 </script>

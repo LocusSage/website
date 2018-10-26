@@ -1,6 +1,6 @@
 <template>
 <div>
-  <ul>
+  <ul >
     <li v-for="post in posts" :key ="post.id">
       <h3>{{post.title.rendered}}</h3>
       <div v-if="post._embedded['wp:featuredmedia']">
@@ -8,14 +8,19 @@
       </div>
       <div class="post">
         <p class="author">{{post._embedded.author[0].name}}</p>
-        <p class="texto" v-html="post.content.rendered"></p>
-        <div class="tags align-justify">
+        <p class="text" v-html="post.excerpt.rendered.substring(0, 329)+'...'"></p>
+        <div class="tags" >
           <span class="underTags">Under this tags </span>
-          <a href="#"> {{post._embedded['wp:term'][1][0].name}} </a>
+          <span class="tags" v-for="tag in post._embedded['wp:term'][1]" :key="tag.id">
+            <a href="#"> {{tag.name}} </a>
+          </span>
         </div>
-        <span class="continue">
-          <a href="#">Continue reading  <icon name="arrow-right" scale="1.0"/></a> 
-        </span>
+        <p class="link-more">
+          <a href="#" class="more-link">
+            Continue reading
+            <span><icon name="arrow-right" scale="1.0"/></span>
+          </a>
+        </p>
       </div>
       <hr/>
     </li>
@@ -25,14 +30,9 @@
 <script>
 
 export default {
-  mounted () {
-    console.log(this)
-  },
   computed: {
-    posts: function () { return this.$store.getters['blog:posts'] }
-  },
-  created: function () {
-    this.$store.dispatch('blog:load-data')
+    posts: function () { return this.$store.getters['blog:posts'] },
+    tags: function () { return this.$store.getters['blog:tags'] }
   }
 }
 </script>
@@ -51,7 +51,7 @@ h3 {
 
 img {
   height: 500px;
-  width:960px;
+  width: 960px;
 }
 
 .post {
@@ -65,9 +65,9 @@ img {
   margin-bottom: 20px;
 }
 
-.texto {
+.text {
   font-size: 1.2rem;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   color: var(--font-color);
 }
 
@@ -85,7 +85,7 @@ a:-webkit-any-link  {
   text-decoration: none;
 }
 
-.continue {
+.link-more {
   font-size: 18px;
   display: block;
   margin-bottom: 50px;

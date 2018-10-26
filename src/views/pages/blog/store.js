@@ -9,7 +9,7 @@ const getters = {
 
 const mutations = {
   'blog:update-posts': function (state, posts) {
-    state.posts = posts
+    state.posts = [...posts]
   }
 }
 
