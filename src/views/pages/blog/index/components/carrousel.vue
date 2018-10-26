@@ -15,7 +15,7 @@
           </div>
           <div>
             <p class="authorName">{{post._embedded.author[0].name}}</p>
-            <p class="authorDescription">athor {{post._embedded.author[0].description}}</p>
+            <p class="authorDescription">{{post._embedded.author[0].description}}</p>
           </div>
         </div>
       </div>
