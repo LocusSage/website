@@ -4,22 +4,22 @@
     <img class="imgCarrousel" :src="post._embedded['wp:featuredmedia'][0].source_url" />
     <div class="divAbsolute">
       <div class="divRelative flex align-justify">
-      <div class="text">
-        <h5>{{post.title.rendered}}</h5>
-        <p>Subtitle</p>
-      </div>
-      <div class="author">
-        <div class="image-container flex align-middle">
-          <div class="circle-image">
-            <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
-          </div>
-          <div>
-            <p class="authorName">{{post._embedded.author[0].name}}</p>
-            <p class="authorDescription">{{post._embedded.author[0].description}}</p>
+        <div class="text">
+          <h5>{{post.title.rendered}}</h5>
+          <p>Subtitle</p>
+        </div>
+        <div class="author">
+          <div class="image-container flex align-middle">
+            <div class="circle-image">
+              <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
+            </div>
+            <div>
+              <p class="authorName">{{post._embedded.author[0].name}}</p>
+              <p class="authorDescription">{{post._embedded.author[0].description}}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </flickity>

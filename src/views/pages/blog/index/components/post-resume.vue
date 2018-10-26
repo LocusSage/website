@@ -17,8 +17,10 @@
         </div>
         <p class="continueReading">
           <a href="#" class="more-link">
-            Continue reading
-            <span><icon name="arrow-right" scale="1.0"/></span>
+           <router-link :to="{name:'Post'}"> 
+              Continue reading 
+              <span><icon name="arrow-right" scale="1.0"/></span>
+            </router-link>
           </a>
         </p>
       </div>
