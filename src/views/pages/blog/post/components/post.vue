@@ -1,5 +1,4 @@
 <template>
-<div class="container">
   <div>
     <div class="author">
       <div class="image-container flex align-middle">
@@ -8,7 +7,7 @@
         </div>
         <div>
           <p class="authorName">{{post._embedded.author[0].name}}</p>
-          <p class="authorDescription">{{post._embedded.author[0].description}}</p>
+          <p class="authorDescription">author{{post._embedded.author[0].description}}</p>
         </div>
       </div>
     </div>
@@ -16,23 +15,25 @@
     <p class="subtitle">{{post.wps_subtitle}}</p>
     <div class="flex align-justify">
       <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
-      <div class="grid">
-        <icon name="facebook" scale="1.8"/>
-        <icon name="linkedin" scale="1.8"/>
-        <icon name="instagram" scale="1.8"/>
-        <icon name="regular/heart" scale="1.8"/>
+      <div class="divRelative">
+        <div class="icons grid">
+          <div class="divIcon"><icon name="brands/facebook" scale="1.9"/></div>
+          <div class="divIcon"><icon name="brands/linkedin" scale="1.9"/></div>
+          <div class="divIcon"><icon name="brands/instagram" scale="1.9"/></div>
+          <div class="divIcon"><icon name="regular/heart" scale="1.9"/></div>
+        </div>
       </div>
     </div>
     <div class="post">
-      <p class="text"  v-html="post.content.rendered"></p>
-      <icon name="facebook" scale="2.0"/>
-      <icon name="linkedin" scale="2.0"/>
-      <icon name="instagram" scale="2.0"/>
-      <icon name="regular/heart" scale="2.0"/>
+      <p class="text" v-html="post.content.rendered"></p>
+      <div class="icons2 flex">
+        <span class="divIcon2"><icon name="brands/facebook" scale="1.9"/></span>
+        <span class="divIcon2"><icon name="brands/linkedin" scale="1.9"/></span>
+        <span class="divIcon2"><icon name="brands/instagram" scale="1.9"/></span>
+        <span class="divIcon2"><icon name="regular/heart" scale="1.9"/></span>
+      </div>
     </div>
-    <hr/>
   </div>
-</div>  
 </template>
 <script>
 
@@ -57,10 +58,6 @@ export default {
 
 <style scoped lang="scss">
 
-.container {
-  width: 960px;
-  text-align: left;
-}
 
 ul {
  list-style-type: none; 
@@ -88,7 +85,7 @@ ul {
 }
 
 .authorName {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .authorDescription {
@@ -97,7 +94,7 @@ ul {
 
 h2 {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: bold;
   font-family: 'Graphik';
 }
@@ -111,8 +108,21 @@ h2 {
 img {
   width: 100%;
   height: 400px;
+  margin-bottom: 20px;
+  margin-right: 50px
+}
+
+.divRelative {
+  position: relative;
+  margin-top: 70px;
+}
+
+.icons {
+  position: fixed;
+}
+
+.divIcon {
   margin-bottom: 50px;
-  margin-right: 20px
 }
 
 .post {
@@ -120,9 +130,19 @@ img {
 }
 
 .text {
-  font-size: 1.4rem;
+  text-align: left;
+  font-size: 1.250rem;
   line-height: 30px;
   margin-bottom: 20px;
+}
+
+.icons2 {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.divIcon2 {
+  margin-right: 50px;
 }
 
 a:-webkit-any-link  {
