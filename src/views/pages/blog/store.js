@@ -11,6 +11,9 @@ const mutations = {
   'blog:update-posts': function (state, posts) {
     state.posts = [...posts]
   }
+  // 'blog:post:update': function (state, postId) {
+  //   state.posts.findIndex(post => post.id === postId)
+  // }
 }
 
 const actions = {
@@ -19,6 +22,11 @@ const actions = {
       context.commit('blog:update-posts', response.data)
     })
   }
+  // 'blog:post:load-data': async (context, postId) => {
+  //   await axios.get(`http://52.15.245.136:4080/wp-json/wp/v2/posts/${postId}?_embed`).then(response => {
+  //     context.commit('blog:post:update', response.data)
+  //   })
+  // }
 }
 
 export default {

@@ -1,5 +1,5 @@
 export default {
-  path: 'blog-post/:postId',
-  name: 'Blog-Post',
+  path: 'blog-post',
+  name: 'Bahualog',
   component: () => import('@/views/pages/home')
 }

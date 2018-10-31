@@ -6,7 +6,7 @@
       <div class="divRelative flex align-justify">
         <div class="text">
           <h5>{{post.title.rendered}}</h5>
-          <p>Subtitle</p>
+          <p>{{post.wps_subtitle}}</p>
         </div>
         <div class="author">
           <div class="image-container flex align-middle">

@@ -16,12 +16,9 @@
           </span>
         </div>
         <p class="continueReading">
-          <a href="#" class="more-link">
-           <router-link :to="{name:'Post'}"> 
-              Continue reading 
-              <span><icon name="arrow-right" scale="1.0"/></span>
-            </router-link>
-          </a>
+          <router-link :to="{name:'Blog-Post', params: {id: post.id}}">
+            <span> Continue reading <icon name="arrow-right" scale="1.0"/></span>
+          </router-link>
         </p>
       </div>
       <hr/>
@@ -32,11 +29,7 @@
 <script>
 
 export default {
-  filters: {
-    removeLink: function (str) {
-      return str.replace(/<p[^>]+[^>]+(link-more)[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>/g)
-    }
-  },
+  props: ['post'],
   computed: {
     posts: function () { return this.$store.getters['blog:posts'] }
   }
@@ -74,6 +67,7 @@ img {
 .text {
   font-size: 1.3rem;
   margin-bottom: 20px;
+  line-height: 30px;
   color: var(--font-color);
 }
 

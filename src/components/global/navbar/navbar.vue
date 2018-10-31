@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     handleScroll: function () {
-      console.log(this.lastScrolled, this.scrolled)
       this.scrolled = window.pageYOffset
       if (this.scrolled <= this.lastScrolled) {
         this.lastScrolled = window.pageYOffset
