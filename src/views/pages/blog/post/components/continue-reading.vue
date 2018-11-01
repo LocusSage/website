@@ -7,7 +7,7 @@
       <div class="post">
         <p class="text" v-html="post.excerpt.rendered.replace(/<p[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>/g, '')"></p>
         <p class="continueReading">
-          <router-link :to="{name:'Blog-Post', params: {id: post.id}}">
+          <router-link :to="{name:'Blog-Post', params: {id: post.id, slug: post.slug}}">
             <span> Continue reading</span>
           </router-link>
         </p>
@@ -18,9 +18,14 @@
 </template>
 <script>
 
+import postId from './post'
+
 export default {
-  created: function () {
-    this.$store.dispatch('blog:load-2-data')
+  components: {
+    'post': postId
+  },
+  mounted: function () {
+    this.$store.dispatch('blog:post:continue-reading')
   },
   computed: {
     posts: function () { return this.$store.getters['blog:posts'] }

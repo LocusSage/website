@@ -15,6 +15,9 @@ export default {
   components: {
     'post': postId,
     'continue-reading': continueReading
+  },
+  created: function (postId) {
+    this.$store.dispatch('blog:post:load-data', this.postId = this.$route.params.id)
   }
 }
 </script>

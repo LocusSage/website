@@ -7,7 +7,7 @@
         </div>
         <div>
           <p class="authorName">{{post._embedded.author[0].name}}</p>
-          <p class="authorDescription">author{{post._embedded.author[0].description}}</p>
+          <p class="authorDescription">{{post._embedded.author[0].description}}</p>
         </div>
       </div>
     </div>
@@ -37,21 +37,10 @@
 </template>
 <script>
 
-import axios from 'axios'
-
 export default {
-  data () {
-    return {
-      post: ''
-    }
-  },
-  created () {
-    this.id = this.$route.params.id
-  },
-  mounted () {
-    axios({ method: 'GET', 'url': `http://52.15.245.136:4080/wp-json/wp/v2/posts/${this.id}?_embed` }).then(json => {
-      this.post = json.data
-    })
+  name: 'postId',
+  computed: {
+    post: function () { return this.$store.getters['blog:post'] }
   }
 }
 </script>

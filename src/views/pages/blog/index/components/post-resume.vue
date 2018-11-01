@@ -11,14 +11,14 @@
         <p class="text" v-html="post.excerpt.rendered.replace(/<p[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>/g, '')"></p>
         <div class="tags">
           <span class="underTags">Under this tags </span>
-          <router-link :to="{name:'Blog-Tags', params: {tag: post.tags[0]}}">
-            <span class="tags" v-for="tag in post._embedded['wp:term'][1]" :key="tag.id">
+          <router-link  v-for="tag in post._embedded['wp:term'][1]" :key="tag.id" :to="{name:'Blog-Tags', params: {tag: tag.id, slug: tag.slug}}">
+            <span class="tags">
               <a class="linkTag" href="#"> &nbsp; {{tag.name}} &nbsp; </a>
             </span>
           </router-link>
         </div>
         <p class="continueReading">
-          <router-link :to="{name:'Blog-Post', params: {id: post.id}}">
+          <router-link :to="{name:'Blog-Post', params: {id: post.id, slug: post.slug}}">
             <span> Continue reading <icon name="arrow-right" scale="1.0"/></span>
           </router-link>
         </p>
