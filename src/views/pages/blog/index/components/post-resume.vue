@@ -3,7 +3,7 @@
   <ul >
     <li v-for="post in posts" :key ="post.id">
       <h3>{{post.title.rendered}}</h3>
-      <div v-if="post._embedded['wp:featuredmedia']">
+      <div>
 				<img :src="post._embedded['wp:featuredmedia'][0].source_url" />
       </div>
       <div class="post">
@@ -31,7 +31,7 @@
 <script>
 
 export default {
-  props: ['post'],
+  props: ['tag'],
   computed: {
     posts: function () { return this.$store.getters['blog:posts'] }
   }

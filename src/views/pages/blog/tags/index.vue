@@ -1,5 +1,5 @@
 <template>
-  <tags/>  
+  <tags class="container"/>  
 </template>
 <script>
 
@@ -10,12 +10,14 @@ export default {
     'tags': Tags
   },
   created: function (tagId) {
-    this.$store.dispatch('blog:tags:load-data', tagId = this.$route.params.tag)
+    this.$store.dispatch('blog:tags:load-data', this.tagId = this.$route.params.tag)
   }
 }
 </script>
 
 <style scoped lang="scss">
-
+.container {
+  width: 960px;
+}
 
 </style>

@@ -11,10 +11,12 @@
         </div>
       </div>
     </div>
-    <h2>{{post.title.rendered}}</h2>
+    <h3>{{post.title.rendered}}</h3>
     <p class="subtitle">{{post.wps_subtitle}}</p>
     <div class="flex align-justify">
-      <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
+      <div>
+        <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
+      </div>
       <div class="divRelative">
         <div class="icons grid">
           <div class="divIcon"><icon name="brands/facebook" scale="1.9"/></div>
@@ -81,7 +83,7 @@ ul {
   font-size: 0.9rem;
 }
 
-h2 {
+h3 {
   margin-top: 10px;
   margin-bottom: 5px;
   font-weight: bold;
@@ -95,7 +97,7 @@ h2 {
 }
 
 img {
-  width: 100%;
+  width: 960px;
   height: 400px;
   margin-bottom: 20px;
   margin-right: 50px

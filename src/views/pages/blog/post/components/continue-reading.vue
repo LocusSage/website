@@ -2,13 +2,15 @@
 <div>
   <ul class="flex align-justify">
     <li v-for="post in posts" :key ="post.id">
-     <img :src="post._embedded['wp:featuredmedia'][0].source_url" /> 
+      <div>
+        <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
+      </div> 
       <h5>{{post.title.rendered}}</h5>
       <div class="post">
         <p class="text" v-html="post.excerpt.rendered.replace(/<p[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>/g, '')"></p>
         <p class="continueReading">
-          <router-link :to="{name:'Blog-Post', params: {id: post.id, slug: post.slug}}">
-            <span> Continue reading</span>
+          <router-link  :to="{name:'Blog-Post', params: {id: post.id, slug: post.slug}}">
+            <span @click="refresh">Continue reading</span>
           </router-link>
         </p>
       </div>
@@ -29,6 +31,11 @@ export default {
   },
   computed: {
     posts: function () { return this.$store.getters['blog:posts'] }
+  },
+  methods: {
+    refresh () {
+      window.location.reload()
+    }
   }
 }
 </script>

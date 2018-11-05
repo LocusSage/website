@@ -1,26 +1,30 @@
 <template>
 <flickity v-if="posts.length > 0" class="carrousel" ref="flickity" :options="flickityOptions">
   <div class="carrousel-cell" v-for="post in posts" :key="post.id">
-    <img class="imgCarrousel" :src="post._embedded['wp:featuredmedia'][0].source_url" />
-    <div class="divAbsolute">
-      <div class="divRelative flex align-justify">
-        <div class="text">
-          <h5>{{post.title.rendered}}</h5>
-          <p>{{post.wps_subtitle}}</p>
-        </div>
-        <div class="author">
-          <div class="image-container flex align-middle">
-            <div class="circle-image">
-              <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
-            </div>
-            <div>
-              <p class="authorName">{{post._embedded.author[0].name}}</p>
-              <p class="authorDescription">{{post._embedded.author[0].description}}</p>
+    <div>
+      <img class="imgCarrousel" :src="post._embedded['wp:featuredmedia'][0].source_url" />
+    </div>
+    <router-link :to="{name:'Blog-Post', params: {id: post.id, slug: post.slug}}">
+      <div class="divAbsolute">
+        <div class="divRelative flex align-justify">
+          <div class="text">
+            <h5>{{post.title.rendered}}</h5>
+            <p>{{post.wps_subtitle}}</p>
+          </div>
+          <div class="author">
+            <div class="image-container flex align-middle">
+              <div class="circle-image">
+                <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
+              </div>
+              <div>
+                <p class="authorName">{{post._embedded.author[0].name}}</p>
+                <p class="authorDescription">{{post._embedded.author[0].description}}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </flickity>
 </template>
@@ -58,14 +62,14 @@ export default {
 .carrousel {
   position: relative;
   margin-bottom: 50px;
-  height: 520px;
+  height: 420px;
 }
 
 .carrousel-cell img.imgCarrousel {
   opacity: 0.6;
   margin-top: 20px;
   margin-right: 10px;
-  height: 500px;
+  height: 400px;
   width: 960px;
   transition: background-size 1s; 
   -webkit-transition: background-size 1s;
@@ -74,8 +78,7 @@ export default {
  .carrousel-cell.is-selected img.imgCarrousel {
   opacity: 2;
   margin-top: 5px;
-  height: 530px;
-  
+  height: 430px;
 }
 
 .divAbsolute {
