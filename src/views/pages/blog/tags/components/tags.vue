@@ -59,7 +59,6 @@ export default {
           gutter: '.gutter-sizer',
           columnWidth: '.grid-sizer'
         })
-        console.log(this.msnry)
       })
     }, 1000)
   }

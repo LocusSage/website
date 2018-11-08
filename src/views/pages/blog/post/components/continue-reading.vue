@@ -27,7 +27,7 @@ export default {
     'post': postId
   },
   computed: {
-    posts: function () { return this.$store.getters['blog:posts'] }
+    posts: function () { return this.$store.getters['blog:posts:continue-reading'] }
   },
   methods: {
     refresh () {
