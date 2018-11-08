@@ -2,7 +2,7 @@
 <div>
   <ul class="flex align-justify">
     <li v-for="post in posts" :key ="post.id">
-      <div>
+      <div v-if="post._embedded['wp:featuredmedia']">
         <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
       </div> 
       <h5>{{post.title.rendered}}</h5>
@@ -25,9 +25,6 @@ import postId from './post'
 export default {
   components: {
     'post': postId
-  },
-  mounted: function () {
-    this.$store.dispatch('blog:post:continue-reading')
   },
   computed: {
     posts: function () { return this.$store.getters['blog:posts'] }

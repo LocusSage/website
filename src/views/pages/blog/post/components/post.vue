@@ -1,38 +1,40 @@
 <template>
   <div>
-    <div class="author">
-      <div class="image-container flex align-middle">
-        <div class="circle-image">
-          <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
-        </div>
-        <div>
-          <p class="authorName">{{post._embedded.author[0].name}}</p>
-          <p class="authorDescription">{{post._embedded.author[0].description}}</p>
-        </div>
-      </div>
-    </div>
-    <h3>{{post.title.rendered}}</h3>
-    <p class="subtitle">{{post.wps_subtitle}}</p>
-    <div class="flex align-justify">
-      <div>
-        <img :src="post._embedded['wp:featuredmedia'][0].source_url" />
-      </div>
-      <div class="divRelative">
-        <div class="icons grid">
-          <div class="divIcon"><icon name="brands/facebook" scale="1.9"/></div>
-          <div class="divIcon"><icon name="brands/linkedin" scale="1.9"/></div>
-          <div class="divIcon"><icon name="brands/instagram" scale="1.9"/></div>
-          <div class="divIcon"><icon name="regular/heart" scale="1.9"/></div>
+    <div class="container">
+      <div class="author">
+        <div class="image-container flex align-middle">
+          <div class="circle-image">
+            <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
+          </div>
+          <div>
+            <p class="authorName">Lorena {{post._embedded.author[0].name}}</p>
+            <p class="authorDescription">um author{{post._embedded.author[0].description}}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="post">
-      <p class="text" v-html="post.content.rendered"></p>
-      <div class="icons2 flex">
-        <span class="divIcon2"><icon name="brands/facebook" scale="1.9"/></span>
-        <span class="divIcon2"><icon name="brands/linkedin" scale="1.9"/></span>
-        <span class="divIcon2"><icon name="brands/instagram" scale="1.9"/></span>
-        <span class="divIcon2"><icon name="regular/heart" scale="1.9"/></span>
+      <h3>{{post.title.rendered}}</h3>
+      <p class="subtitle">{{post.wps_subtitle}}</p>
+      <div class="flex align-justify">
+        <div class="image">
+          <img v-if="post._embedded['wp:featuredmedia']" :src="post._embedded['wp:featuredmedia'][0].source_url" />
+        </div>
+        <div class="divRelative">
+          <div class="icons grid">
+            <div  id="facebook" class="divIcon"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></div>
+            <div id="linkedin" class="divIcon"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></div>
+            <div id="instagram" class="divIcon"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></div>
+            <div id="like" class="divIcon"><a target="blank" href="#"><icon name="regular/heart" scale="1.9"/></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="post">
+        <p class="text" v-html="post.content.rendered"></p>
+        <div class="lowIcons flex">
+          <span class="divLowIcons"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></span>
+          <span class="divLowIcons"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></span>
+          <span class="divLowIcons"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></span>
+          <span class="divLowIcons"><icon name="regular/heart" scale="1.9"/></span>
+        </div>
       </div>
     </div>
   </div>
@@ -40,7 +42,6 @@
 <script>
 
 export default {
-  name: 'postId',
   computed: {
     post: function () { return this.$store.getters['blog:post'] }
   }
@@ -48,11 +49,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-
-ul {
- list-style-type: none; 
-}
 
 .circle-image{
   overflow: hidden;
@@ -72,7 +68,7 @@ ul {
 
 .author {
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .authorName {
@@ -80,7 +76,7 @@ ul {
 }
 
 .authorDescription {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 h3 {
@@ -98,26 +94,23 @@ h3 {
 
 img {
   width: 960px;
-  height: 400px;
   margin-bottom: 20px;
-  margin-right: 50px
+}
+
+.icons {
+  position: fixed;
+  margin-top: 70px;
+  z-index: 2;
+}
+
+.divIcon {
+  margin-left: 50px;
+  margin-bottom: 50px;
 }
 
 .divRelative {
   position: relative;
   margin-top: 70px;
-}
-
-.icons {
-  position: fixed;
-}
-
-.divIcon {
-  margin-bottom: 50px;
-}
-
-.post {
-  margin: 10px;
 }
 
 .text {
@@ -127,19 +120,24 @@ img {
   margin-bottom: 20px;
 }
 
-.icons2 {
+.lowIcons {
   margin-top: 80px;
   margin-bottom: 20px;
+   color: var(--font-color);
 }
 
-.divIcon2 {
+.divLowIcons {
   margin-right: 50px;
 }
 
 a:-webkit-any-link  {
-  color: var(--dark-blue);
   text-decoration: none;
+  color: var(--font-color);
+  &:hover {
+    color: var(--medium-gray)
+  }
 }
+
 
 .continueReading {
   font-size: 1.3rem;

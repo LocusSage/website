@@ -1,30 +1,30 @@
 <template>
 <flickity v-if="posts.length > 0" class="carrousel" ref="flickity" :options="flickityOptions">
   <div class="carrousel-cell" v-for="post in posts" :key="post.id">
-    <div>
+    <div v-if="post._embedded['wp:featuredmedia']">
       <img class="imgCarrousel" :src="post._embedded['wp:featuredmedia'][0].source_url" />
     </div>
-    <router-link :to="{name:'Blog-Post', params: {id: post.id, slug: post.slug}}">
-      <div class="divAbsolute">
-        <div class="divRelative flex align-justify">
-          <div class="text">
+    <div class="divAbsolute">
+      <div class="divRelative flex align-justify">
+        <div class="text">
+          <router-link :to="{name:'Blog-Post', params: {id: post.id, slug: post.slug}}">
             <h5>{{post.title.rendered}}</h5>
             <p>{{post.wps_subtitle}}</p>
-          </div>
-          <div class="author">
-            <div class="image-container flex align-middle">
-              <div class="circle-image">
-                <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
-              </div>
-              <div>
-                <p class="authorName">{{post._embedded.author[0].name}}</p>
-                <p class="authorDescription">{{post._embedded.author[0].description}}</p>
-              </div>
+          </router-link>
+        </div>
+        <div class="author">
+          <div class="image-container flex align-middle">
+            <div class="circle-image">
+              <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
+            </div>
+            <div>
+              <p class="authorName">{{post._embedded.author[0].name}}</p>
+              <p class="authorDescription">{{post._embedded.author[0].description}}</p>
             </div>
           </div>
         </div>
       </div>
-    </router-link>
+    </div>
   </div>
 </flickity>
 </template>
@@ -96,6 +96,14 @@ export default {
   width: 400px;
   color: white;
   font-size: 1rem;
+}
+
+a:-webkit-any-link  {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 h5 {

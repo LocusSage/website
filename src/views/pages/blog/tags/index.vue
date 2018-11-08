@@ -1,5 +1,7 @@
 <template>
-  <tags class="container"/>  
+  <div class="flex align-center">
+    <tags class="wrapper"/> 
+  </div> 
 </template>
 <script>
 
@@ -16,8 +18,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container {
-  width: 960px;
+.wrapper {
+  min-width: 960px;
+  background: white;
 }
 
 </style>

@@ -1,8 +1,10 @@
 <template>
-  <div class="container">
-    <post/>
-    <hr>
-    <continue-reading/>
+  <div class="flex align-center">
+    <div class="wrapper">
+      <post/>
+      <hr>
+      <continue-reading/>
+    </div>
   </div>
 </template>
 <script>
@@ -16,17 +18,21 @@ export default {
     'post': postId,
     'continue-reading': continueReading
   },
-  created: function (postId) {
+  mounted: function (postId) {
     this.$store.dispatch('blog:post:load-data', this.postId = this.$route.params.id)
+  },
+  created: function () {
+    this.$store.dispatch('blog:post:continue-reading')
   }
 }
 </script>
 
 <style scoped lang="scss">
 
-.container {
+.wrapper {
+  min-width: 980px;
   width: 960px;
-  text-align: left;
+  background: white;
 }
 
 </style>
