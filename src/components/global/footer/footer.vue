@@ -50,7 +50,9 @@ export default {
 </script>
 <style lang="scss" scoped>
   footer {
+    position: absolute;
     background: var(--theme-color);
+    z-index: 3;
     padding: 90px 0px;
     width: 100%;
     color: white;
