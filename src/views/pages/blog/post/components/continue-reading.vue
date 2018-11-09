@@ -44,7 +44,6 @@ export default {
 
 ul {
  list-style-type: none;
- 
 }
 
 li {
@@ -52,6 +51,12 @@ li {
 }
 
 h5 {
+  @media (max-width: 1920px) {
+    font-size: 1.5vw; 
+  }
+  @media (max-width: 1366px) {
+   font-size: 1.7vw; 
+  }
   text-align: left;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -71,7 +76,12 @@ img {
 
 .text {
   text-align: left;
-  font-size: 1.1rem;
+  @media (max-width: 1920px) {
+    font-size: 1vw; 
+  }
+  @media (max-width: 1366px) {
+   font-size: 1.250vw; 
+  }
   margin-bottom: 20px;
   color: var(--font-color);
 }

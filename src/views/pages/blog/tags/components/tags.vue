@@ -105,8 +105,8 @@ export default {
 }
 
 .post-no-image {
-  width: 100%;
-  height: 300px;
+  width: 420px;
+  height: 250px;
   border-radius: 10px;
   background: black;
 }
@@ -128,7 +128,12 @@ h4 {
 }
 
 .text {
-  font-size: 1.1rem;
+  @media (max-width: 1920px) {
+    font-size: 1vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.3vw;
+  }
   text-align: left;
   margin-bottom: 30px;
 }
@@ -141,7 +146,7 @@ h4 {
   position: relative;
   margin: 20px;
   bottom: 130px;
-  width: 400px; 
+  width: 400px;
 }
 
 .image-container {

@@ -45,14 +45,21 @@ ul {
 }
 
 h3 {
+  font-size: 2.5rem;
   text-align: center;
   font-weight: bold;
   font-family: 'Graphik';
 }
 
 img {
-  height: 500px;
-  width: 960px;
+  
+ @media (max-width: 1920px) {
+    width: 960px;
+  }
+  @media (max-width: 1366px) {
+    width: 660px;
+  }
+  height: auto;
 }
 
 .post {
@@ -60,14 +67,24 @@ img {
 }
 
 .author {
-  font-size: 1.2rem;
+  @media (max-width: 1920px) {
+    font-size: 1vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.3vw
+  }
   color: var(--medium-gray);
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
 .text {
-  font-size: 1.3rem;
+  @media (max-width: 1920px) {
+    font-size: 1.2vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.5vw
+  }
   margin-bottom: 20px;
   line-height: 30px;
   color: var(--font-color);
@@ -79,11 +96,21 @@ img {
 
 .underTags {
   color: var(--light-gray);
-  font-size: 1rem;
+ @media (max-width: 1920px) {
+    font-size: 1.1vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.4vw
+  }
 }
 
 .linkTag {
-  font-size: 0.9rem;
+  @media (max-width: 1920px) {
+    font-size: 1vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.3vw
+  }
 }
 
 a:-webkit-any-link  {
@@ -92,7 +119,12 @@ a:-webkit-any-link  {
 }
 
 .continueReading {
-  font-size: 1.3rem;
+ @media (max-width: 1920px) {
+    font-size: 1.2vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.550vw
+  }
   display: block;
   margin-bottom: 50px;
 }

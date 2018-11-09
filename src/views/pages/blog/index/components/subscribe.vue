@@ -63,13 +63,23 @@ export default {
   font-family: 'Graphik';
   margin-top: 20px;
   margin-bottom: 10px;
-  font-size: 20px;
+  @media (max-width: 1920px) {
+    font-size: 1.3vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.8vw;
+  }
   color: var(--font-color);
 }
 
 .text {
   font-family: 'Graphik';
-  font-size: 15px;
+  @media (max-width: 1920px) {
+    font-size: 1vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.350vw;
+  }
   color: var(--font-color)
 }
 
@@ -77,7 +87,7 @@ form {
   margin-top: 16px;
 }
 
-form input{
+form input {
   width: 75%;
   height: 50px; 
   margin-right: 10px;

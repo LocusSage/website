@@ -62,15 +62,26 @@ export default {
 .carrousel {
   position: relative;
   margin-bottom: 50px;
-  height: 420px;
+  @media (max-width: 1920px) {
+    height: 420px;
+  }
+  @media (max-width: 1366px) {
+    height: 320px;
+  }
 }
 
 .carrousel-cell img.imgCarrousel {
   opacity: 0.6;
   margin-top: 20px;
   margin-right: 10px;
-  height: 400px;
-  width: 960px;
+  @media (max-width: 1920px) {
+    width: 960px;
+    height: 400px;
+  }
+  @media (max-width: 1366px) {
+    width: 660px;
+    height: 300px;
+  }
   transition: background-size 1s; 
   -webkit-transition: background-size 1s;
 }
@@ -78,25 +89,30 @@ export default {
  .carrousel-cell.is-selected img.imgCarrousel {
   opacity: 2;
   margin-top: 5px;
-  height: 430px;
+  @media (max-width: 1920px) {
+    height: 430px;
+  }
+  @media (max-width: 1366px) {
+    height: 330px;
+  }
 }
 
 .divAbsolute {
-  width: 960px;
+ @media (max-width: 1920px) {
+    width: 960px;
+  }
+  @media (max-width: 1366px) {
+    width: 660px;
+  }
   position: absolute;
 }
 
 .divRelative {
   position: relative;
-  margin: 60px;
-  bottom: 240px;
+  margin: 50px;
+  bottom: 200px;
 }
 
-.text {
-  width: 400px;
-  color: white;
-  font-size: 1rem;
-}
 
 a:-webkit-any-link  {
   color: white;
@@ -107,14 +123,19 @@ a:-webkit-any-link  {
 }
 
 h5 {
-  font-size: 2rem;
+ @media (max-width: 1920px) {
+   font-size: 2rem;
+  }
+  @media (max-width: 1366px) {
+     font-size: 1.8rem;
+  }
    font-weight: bold;
   font-family: 'Graphik';
   margin-bottom: 10px;
 }
 
 .author {
-  margin-top: 70px;
+  margin-top: 50px;
   color: white;
 }
 

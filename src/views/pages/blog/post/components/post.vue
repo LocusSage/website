@@ -78,6 +78,12 @@ export default {
 }
 
 h3 {
+  @media (max-width: 1920px) {
+    font-size: 2.3vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 3vw;
+  }
   margin-top: 10px;
   margin-bottom: 5px;
   font-weight: bold;
@@ -86,40 +92,55 @@ h3 {
 
 .subtitle {
   color: var(--font-color);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 20px;
 }
 
 img {
-  width: 960px;
+  @media (max-width: 1920px) {
+   width: 960px; 
+  }
+  @media (max-width: 1366px) {
+    width: 760px;
+  }
+  height: auto;
   margin-bottom: 20px;
 }
 
 .icons {
   position: fixed;
-  margin-top: 70px;
   z-index: 2;
 }
 
 .divIcon {
   margin-left: 50px;
-  margin-bottom: 50px;
+  @media (max-width: 1920px) {
+    margin-bottom: 50px;
+  }
+  @media (max-width: 1366px) {
+    margin-bottom: 40px;
+  }
 }
 
 .divRelative {
   position: relative;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .text {
   text-align: left;
-  font-size: 1.250rem;
+  @media (max-width: 1920px) {
+    font-size: 1vw;
+  }
+  @media (max-width: 1366px) {
+    font-size: 1.3vw;
+  }
   line-height: 30px;
   margin-bottom: 20px;
 }
 
 .lowIcons {
-  margin-top: 80px;
+  margin-top: 50px;
   margin-bottom: 20px;
    color: var(--font-color);
 }
