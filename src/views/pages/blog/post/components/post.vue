@@ -1,40 +1,38 @@
 <template>
   <div>
-    <div class="container">
-      <div class="author">
-        <div class="image-container flex align-middle">
-          <div class="circle-image">
-            <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
-          </div>
-          <div>
-            <p class="authorName">Lorena {{post._embedded.author[0].name}}</p>
-            <p class="authorDescription">um author{{post._embedded.author[0].description}}</p>
-          </div>
+    <div class="author">
+      <div class="image-container flex align-middle">
+        <div class="circle-image">
+          <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
+        </div>
+        <div>
+          <p class="authorName">{{post._embedded.author[0].name}}</p>
+          <p class="authorDescription">{{post._embedded.author[0].description}}</p>
         </div>
       </div>
-      <h3>{{post.title.rendered}}</h3>
-      <p class="subtitle">{{post.wps_subtitle}}</p>
-      <div class="flex align-justify">
-        <div class="image">
-          <img v-if="post._embedded['wp:featuredmedia']" :src="post._embedded['wp:featuredmedia'][0].source_url" />
-        </div>
-        <div class="divRelative">
-          <div class="icons grid">
-            <div  id="facebook" class="divIcon"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></div>
-            <div id="linkedin" class="divIcon"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></div>
-            <div id="instagram" class="divIcon"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></div>
-            <div id="like" class="divIcon"><a target="blank" href="#"><icon name="regular/heart" scale="1.9"/></a></div>
-          </div>
+    </div>
+    <h3>{{post.title.rendered}}</h3>
+    <p class="subtitle">{{post.wps_subtitle}}</p>
+    <div class="flex align-justify">
+      <div class="image">
+        <img v-if="post._embedded['wp:featuredmedia']" :src="post._embedded['wp:featuredmedia'][0].source_url" />
+      </div>
+      <div class="divRelative">
+        <div class="icons grid">
+          <div  id="facebook" class="divIcon"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></div>
+          <div id="linkedin" class="divIcon"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></div>
+          <div id="instagram" class="divIcon"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></div>
+          <div id="like" class="divIcon"><a target="blank" href="#"><icon name="regular/heart" scale="1.9"/></a></div>
         </div>
       </div>
-      <div class="post">
-        <p class="text" v-html="post.content.rendered"></p>
-        <div class="lowIcons flex">
-          <span class="divLowIcons"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></span>
-          <span class="divLowIcons"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></span>
-          <span class="divLowIcons"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></span>
-          <span class="divLowIcons"><icon name="regular/heart" scale="1.9"/></span>
-        </div>
+    </div>
+    <div class="post">
+      <p class="text" v-html="post.content.rendered"></p>
+      <div class="lowIcons flex">
+        <span class="divLowIcons"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></span>
+        <span class="divLowIcons"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></span>
+        <span class="divLowIcons"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></span>
+        <span class="divLowIcons"><icon name="regular/heart" scale="1.9"/></span>
       </div>
     </div>
   </div>

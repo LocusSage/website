@@ -9,20 +9,17 @@
 </template>
 <script>
 
-import postId from './components/post'
+import post from './components/post'
 import continueReading from './components/continue-reading'
 
 export default {
 
   components: {
-    'post': postId,
+    'post': post,
     'continue-reading': continueReading
   },
-  mounted: function (postId) {
+  created: function (postId) {
     this.$store.dispatch('blog:post:load-data', this.postId = this.$route.params.id)
-  },
-  created: function () {
-    this.$store.dispatch('blog:post:continue-reading')
   }
 }
 </script>

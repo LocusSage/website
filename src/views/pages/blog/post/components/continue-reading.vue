@@ -33,6 +33,9 @@ export default {
     refresh () {
       window.location.reload()
     }
+  },
+  mounted: function () {
+    this.$store.dispatch('blog:post:continue-reading')
   }
 }
 </script>
