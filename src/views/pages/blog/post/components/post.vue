@@ -101,7 +101,7 @@ img {
    width: 960px; 
   }
   @media (max-width: 1366px) {
-    width: 760px;
+    width: 660px;
   }
   height: auto;
   margin-bottom: 20px;
