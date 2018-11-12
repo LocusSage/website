@@ -45,7 +45,15 @@ ul {
 }
 
 h3 {
-  font-size: 2.5rem;
+  @media (min-width: 1366px) {
+    font-size: calc(2rem + ((1vw - 0.3rem) * 0.5556));
+  }
+  @media (min-width: 1920px) {
+    font-size: 2.5rem;
+  }
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
   font-family: 'Graphik';
@@ -67,11 +75,11 @@ img {
 }
 
 .author {
-  @media (max-width: 1920px) {
-    font-size: 1vw;
+ @media (min-width: 1366px) {
+    font-size: calc(1rem + ((1vw - 0.3rem) * 0.2778));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.3vw
+  @media (min-width: 1920px) {
+    font-size: 1.3rem;
   }
   color: var(--medium-gray);
   margin-top: 10px;
@@ -79,11 +87,11 @@ img {
 }
 
 .text {
-  @media (max-width: 1920px) {
-    font-size: 1.2vw;
+  @media (min-width: 1366px) {
+    font-size: calc(1rem + ((1vw - 0.3rem) * 0.2778));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.5vw
+  @media (min-width: 1920px) {
+    font-size: 1.3rem;
   }
   margin-bottom: 20px;
   line-height: 30px;
@@ -96,34 +104,34 @@ img {
 
 .underTags {
   color: var(--light-gray);
- @media (max-width: 1920px) {
-    font-size: 1.1vw;
+  @media (min-width: 1366px) {
+    font-size: calc(0.7rem + ((1vw - 0.3rem) * 0.6667));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.4vw
+  @media (min-width: 1920px) {
+    font-size: 1.1rem;
   }
 }
 
 .linkTag {
-  @media (max-width: 1920px) {
-    font-size: 1vw;
+   @media (min-width: 1366px) {
+    font-size: calc(0.3rem + ((1vw - 0.3rem) * 1));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.3vw
+  @media (min-width: 1920px) {
+    font-size: 0.950rem;
   }
 }
 
-a:-webkit-any-link  {
+a {
   color: var(--dark-blue);
   text-decoration: none;
 }
 
 .continueReading {
- @media (max-width: 1920px) {
-    font-size: 1.2vw;
+ @media (min-width: 1366px) {
+    font-size: calc(0.9rem + ((1vw - 0.3rem) * 0.4444));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.550vw
+  @media (min-width: 1920px) {
+    font-size: 1.2rem;
   }
   display: block;
   margin-bottom: 50px;

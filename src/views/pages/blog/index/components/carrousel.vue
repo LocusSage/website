@@ -114,7 +114,7 @@ export default {
 }
 
 
-a:-webkit-any-link  {
+a {
   color: white;
   text-decoration: none;
   &:hover {

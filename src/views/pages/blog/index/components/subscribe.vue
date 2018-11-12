@@ -63,22 +63,22 @@ export default {
   font-family: 'Graphik';
   margin-top: 20px;
   margin-bottom: 10px;
-  @media (max-width: 1920px) {
-    font-size: 1.3vw;
+  @media (min-width: 1366px) {
+    font-size: calc(1.052rem + ((1vw - 0.3rem) * 0.4444));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.8vw;
+  @media (min-width: 1920px) {
+    font-size: 1.5rem;
   }
   color: var(--font-color);
 }
 
 .text {
   font-family: 'Graphik';
-  @media (max-width: 1920px) {
-    font-size: 1vw;
+  @media (min-width: 1366px) {
+    font-size: calc(0.6rem + ((1vw - 0.3rem) * 0.6667));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.350vw;
+  @media (min-width: 1920px) {
+    font-size: 1.1rem;
   }
   color: var(--font-color)
 }
@@ -89,7 +89,12 @@ form {
 
 form input {
   width: 75%;
-  height: 50px; 
+  @media (min-width: 1366px) {
+   height: 45px;
+  }
+  @media (min-width: 1920px) {
+    height: 50px;
+  }
   margin-right: 10px;
   font-size: 18px;
   margin-bottom: 10px;
@@ -98,7 +103,12 @@ form input {
 
 form button {
   background: var(--dark-blue);
-  height: 51px;
+   @media (min-width: 1366px) {
+   height: 46px;
+  }
+  @media (min-width: 1920px) {
+    height: 51px;
+  }
   border-radius: 3px;
   width: 25%;
   color: white;
