@@ -51,11 +51,11 @@ li {
 }
 
 h5 {
-  @media (max-width: 1920px) {
-    font-size: 1.5vw; 
+  @media (min-width: 340px) {
+    font-size: calc(0.980rem + ((1vw - 0.3rem) * 0.5556));
   }
-  @media (max-width: 1366px) {
-   font-size: 1.7vw; 
+  @media (min-width: 1920px) {
+    font-size: 1.5rem;
   }
   text-align: left;
   margin-bottom: 10px;
@@ -70,17 +70,17 @@ h5 {
 
 img {
   margin-top: 20px; 
-  height: 200px;
   width: 100%;
+  height: auto;
 }
 
 .text {
   text-align: left;
-  @media (max-width: 1920px) {
-    font-size: 1vw; 
+  @media (min-width: 340px) {
+    font-size: calc(0.8rem + ((1vw - 0.3rem) * 0.2778));
   }
-  @media (max-width: 1366px) {
-   font-size: 1.250vw; 
+  @media (min-width: 1920px) {
+    font-size: 1.3rem;
   }
   margin-bottom: 20px;
   color: var(--font-color);

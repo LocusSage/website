@@ -78,11 +78,11 @@ export default {
 }
 
 h3 {
-  @media (max-width: 1920px) {
-    font-size: 2.3vw;
+  @media (min-width: 340px) {
+    font-size: calc(1.6rem + ((1vw - 0.3rem) * 0.5556));
   }
-  @media (max-width: 1366px) {
-    font-size: 3vw;
+  @media (min-width: 1920px) {
+    font-size: 2.3rem;
   }
   margin-top: 10px;
   margin-bottom: 5px;
@@ -97,12 +97,7 @@ h3 {
 }
 
 img {
-  @media (max-width: 1920px) {
-   width: 960px; 
-  }
-  @media (max-width: 1366px) {
-    width: 660px;
-  }
+  width:100%;
   height: auto;
   margin-bottom: 20px;
 }
@@ -129,11 +124,11 @@ img {
 
 .text {
   text-align: left;
-  @media (max-width: 1920px) {
-    font-size: 1vw;
+   @media (min-width: 1366px) {
+    font-size: calc(1rem + ((1vw - 0.3rem) * 0.2778));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.3vw;
+  @media (min-width: 1920px) {
+    font-size: 1.3rem;
   }
   line-height: 30px;
   margin-bottom: 20px;

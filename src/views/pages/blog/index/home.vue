@@ -31,13 +31,15 @@ export default {
 <style scoped lang="scss">
  
 .wrapper {
- @media (max-width: 1920px) {
-    width: 960px;
+  @media (min-width: 340px) and (max-width: 768px){
+    width: 90%;
   }
-  @media (max-width: 1366px) {
-    width: 660px;
+  @media (min-width: 1024px) and (max-width: 1920px) {
+    width: 50%;
   }
   background: white;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 hr {

@@ -45,11 +45,11 @@ ul {
 }
 
 h3 {
-  @media (min-width: 1366px) {
-    font-size: calc(2rem + ((1vw - 0.3rem) * 0.5556));
+  @media (min-width: 340px) {
+    font-size: calc(1.6rem + ((1vw - 0.3rem) * 0.5556));
   }
   @media (min-width: 1920px) {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   margin-left: 50px;
   margin-right: 50px;
@@ -60,13 +60,7 @@ h3 {
 }
 
 img {
-  
- @media (max-width: 1920px) {
-    width: 960px;
-  }
-  @media (max-width: 1366px) {
-    width: 660px;
-  }
+  width: 100%;
   height: auto;
 }
 
@@ -75,11 +69,11 @@ img {
 }
 
 .author {
- @media (min-width: 1366px) {
+ @media (min-width: 340px) {
     font-size: calc(1rem + ((1vw - 0.3rem) * 0.2778));
   }
   @media (min-width: 1920px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   color: var(--medium-gray);
   margin-top: 10px;
@@ -87,7 +81,7 @@ img {
 }
 
 .text {
-  @media (min-width: 1366px) {
+  @media (min-width: 340px) {
     font-size: calc(1rem + ((1vw - 0.3rem) * 0.2778));
   }
   @media (min-width: 1920px) {
@@ -104,8 +98,8 @@ img {
 
 .underTags {
   color: var(--light-gray);
-  @media (min-width: 1366px) {
-    font-size: calc(0.7rem + ((1vw - 0.3rem) * 0.6667));
+  @media (min-width: 340px) {
+    font-size: calc(0.8rem + ((1vw - 0.3rem) * 0.6667));
   }
   @media (min-width: 1920px) {
     font-size: 1.1rem;
@@ -113,8 +107,8 @@ img {
 }
 
 .linkTag {
-   @media (min-width: 1366px) {
-    font-size: calc(0.3rem + ((1vw - 0.3rem) * 1));
+   @media (min-width: 340px) {
+    font-size: calc(0.7rem + ((1vw - 0.3rem) * 0.3889));
   }
   @media (min-width: 1920px) {
     font-size: 0.950rem;
@@ -127,7 +121,7 @@ a {
 }
 
 .continueReading {
- @media (min-width: 1366px) {
+ @media (min-width: 340px) {
     font-size: calc(0.9rem + ((1vw - 0.3rem) * 0.4444));
   }
   @media (min-width: 1920px) {

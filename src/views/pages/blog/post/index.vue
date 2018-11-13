@@ -26,14 +26,16 @@ export default {
 
 <style scoped lang="scss">
 
-.wrapper {
-  @media (max-width: 1920px) {
-    width: 960px;
+.wrapper{
+  @media (min-width: 340px) {
+    width: 90%;
   }
-  @media (max-width: 1366px) {
-    width: 660px;
+  @media (max-width: 1920px ) and (min-width: 1366px) {
+    width: 50%;
   }
   background: white;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 </style>

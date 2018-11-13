@@ -55,7 +55,12 @@ export default {
 <style scoped lang="scss">
 
 .subscribe {
- margin: 20px;
+  @media (min-width: 340px) {
+   margin: 5px;
+  }
+  @media (min-width: 1920px) {
+  margin: 20px;
+  } 
 }
 
 .title {
@@ -63,8 +68,8 @@ export default {
   font-family: 'Graphik';
   margin-top: 20px;
   margin-bottom: 10px;
-  @media (min-width: 1366px) {
-    font-size: calc(1.052rem + ((1vw - 0.3rem) * 0.4444));
+  @media (min-width: 340px) {
+    font-size: calc(1rem + ((1vw - 0.3rem) * 0.4444));
   }
   @media (min-width: 1920px) {
     font-size: 1.5rem;
@@ -74,8 +79,8 @@ export default {
 
 .text {
   font-family: 'Graphik';
-  @media (min-width: 1366px) {
-    font-size: calc(0.6rem + ((1vw - 0.3rem) * 0.6667));
+  @media (min-width: 340px) {
+    font-size: calc(0.7rem + ((1vw - 0.3rem) * 0.5556));
   }
   @media (min-width: 1920px) {
     font-size: 1.1rem;
@@ -85,34 +90,37 @@ export default {
 
 form {
   margin-top: 16px;
+  width: 100%
 }
 
 form input {
   width: 75%;
-  @media (min-width: 1366px) {
-   height: 45px;
+  @media (min-width: 340px) {
+   height: 35px;
+   font-size: 12px;
   }
   @media (min-width: 1920px) {
     height: 50px;
+    font-size: 18px;
   }
   margin-right: 10px;
-  font-size: 18px;
   margin-bottom: 10px;
   border-color: var(--medium-gray)
 }
 
 form button {
   background: var(--dark-blue);
-   @media (min-width: 1366px) {
-   height: 46px;
+  @media (min-width: 340px) {
+   height: 41px;
+   font-size: 12px;
   }
   @media (min-width: 1920px) {
     height: 51px;
+    font-size: 20px;
   }
   border-radius: 3px;
   width: 25%;
   color: white;
-  font-size: 20px;
   &:hover {
     background: var(--blue);
     cursor: pointer;
@@ -132,8 +140,14 @@ form button {
 }
 .icon {
   position: relative;
-  right: 50px;
-  top: 25px;
+  @media (min-width: 340px) {
+    right: 47px;
+    top: 23px;
+  }
+  @media (min-width: 1920px) {
+    right: 50px;
+    top: 25px;
+  }
   transform: translateY(-50%);
 }
 
