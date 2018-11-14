@@ -59,30 +59,73 @@ export default {
   }
   .logo-mark {
     margin-top: 15px;
+    @media (min-width: 340px) {
+    font-size: 1.6rem;
+    }
+    @media (min-width: 768px) and (max-width:1366px) {
     font-size: 2rem;
+    }
+   @media (min-width: 1920px)  {
+      font-size: 2rem;
+    }
     font-family: "Circular", sans-serif;
     opacity: 1
   }
 
-  .base  {
+  .base  { 
+  @media (min-width: 340px) {
+    width: 90%;
+    font-size: 12px;
+  }
+  @media (min-width: 768px) and (max-width:1366px) {
+    width: 70%;
+    font-size: 14px;
+  }
+  @media (min-width: 1920px)  {
     width: 40%;
+    font-size: 18px;
+  }
     opacity: .9;
   }
 
   .social {
+  @media (min-width: 340px) {
+    width: 40%;
+  }
+  @media (min-width: 1920px)  {
     width: 10%;
+  }
+    
     a {
       color: white !important;
     }
   }
 
   h4 {
+    @media (min-width: 340px) {
+    font-size: 1.5rem;
+    }
+    @media (min-width: 768px) and (max-width:1366px) {
+    font-size: 2rem;
+    }
+   @media (min-width: 1920px)  {
+      font-size: 2rem;
+    }
     margin-bottom: 10px;
   }
   .info {
     text-align: center;
-    line-height: 1.6;
+    @media (min-width: 340px) {
+    font-size: 14px;
+    }
+    @media (min-width: 768px) and (max-width:1366px) {
     font-size: 16px;
+    }
+   @media (min-width: 1920px)  {
+      font-size: 16px;
+    }
+    line-height: 1.6;
+    
   }
 
   .copyrights {

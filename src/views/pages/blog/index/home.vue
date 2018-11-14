@@ -34,7 +34,7 @@ export default {
   @media (min-width: 340px) and (max-width: 768px){
     width: 90%;
   }
-  @media (min-width: 1024px) and (max-width: 1920px) {
+  @media (min-width: 768px) and (max-width: 1920px) {
     width: 50%;
   }
   background: white;

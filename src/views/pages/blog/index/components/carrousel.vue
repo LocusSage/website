@@ -67,18 +67,25 @@ export default {
     height: 400px;
   }
   @media (min-width: 1920px ) {
-   height: 500px;
+   height: 520px;
   }
 }
 
 .carrousel-cell {
+  
   margin-top: 50px;
   margin-right: 5px;
-  @media (min-width: 340px) and (max-width: 768px){
+  @media (min-width: 340px) and (max-width: 768px) {
     width: 90%;
+    height: 200px;
   }
-  @media (min-width: 1024px) and (max-width: 1920px) {
+  @media (min-width: 768px) and (max-width:1366px) {
     width: 60%;
+    height: 400px;
+  }
+  @media (min-width: 1920px)  {
+    width: 60%;
+    height: 520px;
   }
 }
 
@@ -93,7 +100,7 @@ export default {
     height: 350px;
   }
   @media (min-width: 1920px )  {
-    height: 450px;
+    height: 470px;
   }
   transition: background-size 1s; 
   -webkit-transition: background-size 1s;
@@ -109,16 +116,15 @@ export default {
     height: 380px;
   }
   @media (min-width: 1920px)  {
-    height: 480px;
+    height: 500px;
   }
 }
-
 
 .divRelative {
   position: relative;
   @media (min-width: 340px) {
     margin: 10px;
-    bottom: 120px;
+    bottom: 130px;
   }
   @media (min-width: 768px) and (max-width:1366px) {
     margin: 50px;

@@ -120,7 +120,12 @@ export default {
 }
 
 h4 {
-  font-size: 2rem;
+  @media (min-width: 340px) {
+    font-size: calc(1.5rem + ((1vw - 0.3rem) * 0.5556));
+  }
+  @media (min-width: 1920px) {
+    font-size: 2rem;
+  }
   font-weight: bold;
   font-family: 'Graphik';
   margin-bottom: 10px;
@@ -128,11 +133,14 @@ h4 {
 }
 
 .text {
-  @media (max-width: 1920px) {
-    font-size: 1vw;
+   @media (min-width: 340px) {
+     font-size: calc(0.7rem + ((1vw - 0.3rem) * 0.2778));
   }
-  @media (max-width: 1366px) {
-    font-size: 1.3vw;
+  @media (min-width: 768px) and (max-width:1366px) {
+     font-size: 1.3rem;
+  }
+  @media (min-width: 1920px)  {
+      font-size: 1.3rem;
   }
   text-align: left;
   margin-bottom: 30px;
@@ -140,13 +148,23 @@ h4 {
 
 .divAbsolute {
   position: absolute;
+  @media (min-width: 340px) {
+    top: 6px;
+    left: 15px;
+  }
+  @media (min-width: 768px) and (max-width:1366px) {
+    top: 60px;
+    left: 15px;
+  }
+  @media (min-width: 1920px)  {
+    top: 90px;
+    left: 15px;
+  }
+ 
 }
 
 .divRelative {
   position: relative;
-  margin: 20px;
-  bottom: 130px;
-  width: 400px;
 }
 
 .image-container {
@@ -156,8 +174,18 @@ h4 {
 .circle-image{
   overflow: hidden;
   border-radius: 100%;
-  height: 40px;
-  width: 40px;
+ @media (min-width: 340px) {
+    height: 20px;
+    width: 20px;
+  }
+  @media (min-width: 768px) and (max-width:1366px) {
+    height: 40px;
+    width: 40px;
+  }
+  @media (min-width: 1920px)  {
+    height: 40px;
+    width: 40px;
+  }
   margin-right: 10px;
   &:hover{
     cursor: pointer;
@@ -165,13 +193,32 @@ h4 {
 }
 
 .circle-image img{
-  height: 40px;
-  width: 40px;
+  @media (min-width: 340px) {
+    height: 20px;
+    width: 20px;
+  }
+  @media (min-width: 768px) and (max-width:1366px) {
+    height: 40px;
+    width: 40px;
+  }
+  @media (min-width: 1920px)  {
+    height: 50px;
+    width: 50px;
+  }
 }
 
 .authorName {
   margin-top: 3px;
-  font-size: 1.1rem;
+  @media (min-width: 340px) {
+    font-size: 0.8rem;
+     margin-top: -1px;
+  }
+  @media (min-width: 768px) and (max-width:1366px) {
+    font-size: 1.1rem;
+  }
+  @media (min-width: 1920px)  {
+    font-size: 1.1rem;
+  }
 }
 
 .authorDescription {
@@ -179,6 +226,12 @@ h4 {
 }
 
 h5 {
+   @media (min-width: 340px) {
+    font-size: calc(0.8rem + ((1vw - 0.3rem) * 0.5556));
+  }
+  @media (min-width: 1920px) {
+    font-size: 2rem;
+  }
   margin-top: 5px;
   font-weight: bold;
   font-family: 'Graphik';

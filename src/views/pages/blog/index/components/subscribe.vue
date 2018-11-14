@@ -96,10 +96,14 @@ form {
 form input {
   width: 75%;
   @media (min-width: 340px) {
-   height: 35px;
-   font-size: 12px;
+     height: 35px;
+    font-size: 14px;
   }
-  @media (min-width: 1920px) {
+  @media (min-width: 768px) and (max-width:1366px) {
+    height: 40px;
+    font-size: 16px;
+  }
+  @media (min-width: 1920px )  {
     height: 50px;
     font-size: 18px;
   }
@@ -111,10 +115,14 @@ form input {
 form button {
   background: var(--dark-blue);
   @media (min-width: 340px) {
-   height: 41px;
+    height: 41px;
    font-size: 12px;
   }
-  @media (min-width: 1920px) {
+  @media (min-width: 768px) and (max-width:1366px) {
+    height: 41px;
+    font-size: 18px;
+  }
+  @media (min-width: 1920px )  {
     height: 51px;
     font-size: 20px;
   }
