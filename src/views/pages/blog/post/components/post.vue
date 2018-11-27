@@ -1,40 +1,31 @@
 <template>
-  <div>
+  <div class="post-wrapper" v-if="post">
     <div class="author">
       <div class="image-container flex align-middle">
-        <div class="circle-image">
+        <div class="circle-image" v-if="post._embedded.author">
           <img class="avatar" :src="post._embedded.author[0].avatar_urls[96]">
         </div>
         <div>
-          <p class="authorName">{{post._embedded.author[0].name}}</p>
-          <p class="authorDescription">{{post._embedded.author[0].description}}</p>
+          <p class="authorName" v-if="post._embedded.author">{{post._embedded.author[0].name}}</p>
+          <p class="authorDescription" v-if="post._embedded.author">{{post._embedded.author[0].description}}</p>
         </div>
       </div>
     </div>
     <h3>{{post.title.rendered}}</h3>
     <p class="subtitle">{{post.wps_subtitle}}</p>
-    <div class="flex align-justify">
-      <div class="image">
+    <div class="flex">
+      <div class="image-wrapper">
         <img v-if="post._embedded['wp:featuredmedia']" :src="post._embedded['wp:featuredmedia'][0].source_url" />
       </div>
-      <div class="divRelative">
-        <div class="icons grid">
-          <div  id="facebook" class="divIcon"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></div>
-          <div id="linkedin" class="divIcon"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></div>
-          <div id="instagram" class="divIcon"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></div>
-          <div id="like" class="divIcon"><a target="blank" href="#"><icon name="regular/heart" scale="1.9"/></a></div>
-        </div>
-      </div>
+      
     </div>
-    <div class="post">
-      <p class="text" v-html="post.content.rendered"></p>
-      <div class="lowIcons flex">
-        <span class="divLowIcons"><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.9"/></a></span>
-        <span class="divLowIcons"><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.9"/></a></span>
-        <span class="divLowIcons"><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.9"/></a></span>
-        <span class="divLowIcons"><icon name="regular/heart" scale="1.9"/></span>
-      </div>
-    </div>
+
+    <!-- 
+    
+      RENDERED CONTENT OF THE POST 
+      
+    -->
+    <div class="post text-content"  v-html="post.content.rendered"> </div>
   </div>
 </template>
 <script>
@@ -47,6 +38,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.post-wrapper {
+  font-size: 19px;
+  width: 100%;
+  font-family: "Merryweather";
+}
 
 .circle-image{
   overflow: hidden;
@@ -77,16 +74,18 @@ export default {
   font-size: 0.8rem;
 }
 
+
+
 h3 {
   @media (min-width: 340px) {
     font-size: calc(1.6rem + ((1vw - 0.3rem) * 0.5556));
   }
   @media (min-width: 1920px) {
-    font-size: 2.3rem;
+    font-size: 2.618rem;
   }
   margin-top: 10px;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 400;
   font-family: 'Graphik';
 }
 
@@ -96,7 +95,19 @@ h3 {
   margin-bottom: 20px;
 }
 
+.image-wrapper {
+  width: 100%;
+  height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
 img {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
   width:100%;
   height: auto;
   margin-bottom: 20px;
@@ -120,18 +131,6 @@ img {
 .divRelative {
   position: relative;
   margin-top: 50px;
-}
-
-.text {
-  text-align: left;
-   @media (min-width: 1366px) {
-    font-size: calc(1rem + ((1vw - 0.3rem) * 0.2778));
-  }
-  @media (min-width: 1920px) {
-    font-size: 1.3rem;
-  }
-  line-height: 30px;
-  margin-bottom: 20px;
 }
 
 .lowIcons {
@@ -163,6 +162,15 @@ hr {
   box-sizing:border-box;
   width:100%;  
 }
+
+.post {
+  font-family: "Graphik";
+  font-size: 1em;
+  p {
+    color: red !important
+  }
+}
+
 
 
 

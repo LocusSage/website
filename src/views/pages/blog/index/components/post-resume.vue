@@ -3,14 +3,14 @@
   <ul >
     <li v-for="post in posts" :key ="post.id">
       <h3>{{post.title.rendered}}</h3>
-      <div v-if="post._embedded['wp:featuredmedia']">
+      <div class="featured-media-container" v-if="post._embedded['wp:featuredmedia']">
 				<img :src="post._embedded['wp:featuredmedia'][0].source_url" />
       </div>
       <div class="post">
         <p class="author">{{post._embedded.author[0].name}}</p>
         <p class="text" v-html="post.excerpt.rendered.replace(/<p[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>/g, '')"></p>
         <div class="tags">
-          <span class="underTags">Under this tags </span>
+          <span class="underTags">Tags</span>
           <router-link  v-for="tag in post._embedded['wp:term'][1]" :key="tag.id" :to="{name:'Blog-Tags', params: {tag: tag.id, slug: tag.slug}}">
             <span class="tags">
               <a class="linkTag" href="#"> &nbsp; {{tag.name}} &nbsp; </a>
@@ -57,6 +57,14 @@ h3 {
   text-align: center;
   font-weight: bold;
   font-family: 'Graphik';
+}
+
+.featured-media-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 400px;
+  overflow: hidden;
 }
 
 img {

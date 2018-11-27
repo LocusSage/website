@@ -1,11 +1,11 @@
 <template>
 <div>
-  <carrousel/>
+  <!-- <carrousel/> -->
   <div class="flex align-center">
     <div class="wrapper">
-      <hr/>
-      <subscribe/>
-      <hr/>
+      <!-- <hr/>
+      <subscribe/> -->
+      <!-- <hr/> -->
       <post-resume/>
     </div>
   </div>
@@ -31,12 +31,10 @@ export default {
 <style scoped lang="scss">
  
 .wrapper {
-  @media (min-width: 340px) and (max-width: 768px){
+  @media (max-width: 768px){
     width: 90%;
   }
-  @media (min-width: 768px) and (max-width: 1920px) {
-    width: 50%;
-  }
+  width: 740px;
   background: white;
   margin-right: auto;
   margin-left: auto;

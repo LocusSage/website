@@ -1,41 +1,49 @@
 <template>
-  <footer>
-    <div class="logo flex align-center">
-      <div class="svg flex align-middle column">
-        <img src="@/assets/logo/cloud-logo-white.svg" width="45px" alt="">
-        <span class="logo-mark">MedCloud</span>
+  <footer class="grid-container">
+    <hr class="span">
+    <div class="grid footer-menus">
+      <div class="left">
+        <ul class="menu vertical">
+          <li class="list-title">MPS Cloud</li>
+          <li>Nossa História</li>
+          <li>Suporte</li>
+          <li>Solicitar uma demonstração</li>
+        </ul>
       </div>
-    </div>
-
-    <div class="flex align-center">
-      <ul class="menu base align-justify">
-        <li>Nossa História</li>
-        <li>Suporte</li>
-        <li>Demo</li>
-        <li>Políticas de segurança</li>
-      </ul>
-    </div>
-    <div class="flex align-center">
-      <ul class="menu social  align-justify">
-        <li><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1.5" /></a></li>
-        <li><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1.5" /></a></li>
-        <li><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1.5" /></a></li>
-      </ul>
-    </div>
-
-    <div class="flex align-middle column">
-      <div class="title">
-        <h4>Contato</h4>
+      <div>
+        <ul class="menu vertical">
+          <li class="list-title">Produtos</li>
+          <li><a target="blank" href="https://www.facebook.com/mpscloud/">Quasar</a></li>
+          <li><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br">Talker</a></li>
+        </ul>
       </div>
-      <div class="info">
-        Fone: +55 (31) 3166 - 3511 <br />
-        Email: contato@mpscloud.com.br <br>
-        Atendimento das 8:00 às 18:00
-      </div>
-    </div>
 
-    <div class="flex align-center copyrights">
-      <small>2011-{{date}} Todos os direitos reservados</small>
+      <div>
+        <ul class="menu vertical">
+          <li class="list-title">Segurança</li>
+          <li>Diretrizes de Segurança</li>
+          <li>Diretrizes de Tecnologia</li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="menu vertical">
+          <li class="list-title">Contato</li>
+          <li><a target="blank" href="https://www.facebook.com/mpscloud/"><icon name="brands/facebook" scale="1" />Facebook</a></li>
+          <li><a target="blank" href="https://www.linkedin.com/company/mps-cloud/"><icon name="brands/linkedin" scale="1" />Linkeding</a></li>
+          <li><a target="blank" href="https://www.instagram.com/mpsclouds/?hl=pt-br"><icon name="brands/instagram" scale="1" />Instagram</a></li>
+          <li><a href=""><icon name="phone"></icon>+55 (31) 3166 - 3511</a></li>
+          <li><a href=""><icon name="envelope"></icon>contato@mpscloud.com.br</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="menu vertical">
+          <li class="list-title">Sistema</li>
+          <li>Login</li>
+          <li>Suporte</li>
+        </ul>
+      </div>
     </div>
   </footer>
 </template>
@@ -49,86 +57,56 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  footer {
-    position: absolute;
-    background: var(--theme-color);
-    z-index: 3;
-    padding: 90px 0px;
-    width: 100%;
-    color: white;
+footer {
+  font-size: 12px;
+  margin-bottom: 50px;
+}
+hr {
+  border-top: 1px solid rgb(240,240,240);
+  display: block;
+  width: 100%;
+}
+
+.wrapper, .span {
+  grid-column: 2/3;
+  @media (max-width: 720px) {
+    grid-column: span 3
   }
-  .logo-mark {
+}
+
+.menu {
+  font-size: 1em;
+  color: rgb(100,100,100);
+  .list-title {
+    font-weight: normal;
+    color: rgb(200,200,200)
+  }
+  li {
     margin-top: 15px;
-    @media (min-width: 340px) {
-    font-size: 1.6rem;
-    }
-    @media (min-width: 768px) and (max-width:1366px) {
-    font-size: 2rem;
-    }
-   @media (min-width: 1920px)  {
-      font-size: 2rem;
-    }
-    font-family: "Circular", sans-serif;
-    opacity: 1
-  }
-
-  .base  { 
-  @media (min-width: 340px) {
-    width: 90%;
-    font-size: 12px;
-  }
-  @media (min-width: 768px) and (max-width:1366px) {
-    width: 70%;
-    font-size: 14px;
-  }
-  @media (min-width: 1920px)  {
-    width: 40%;
-    font-size: 18px;
-  }
-    opacity: .9;
-  }
-
-  .social {
-  @media (min-width: 340px) {
-    width: 40%;
-  }
-  @media (min-width: 1920px)  {
-    width: 10%;
-  }
-    
     a {
-      color: white !important;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      svg {
+        margin-right: 10px;
+      }
     }
   }
+}
 
-  h4 {
-    @media (min-width: 340px) {
-    font-size: 1.5rem;
-    }
-    @media (min-width: 768px) and (max-width:1366px) {
-    font-size: 2rem;
-    }
-   @media (min-width: 1920px)  {
-      font-size: 2rem;
-    }
-    margin-bottom: 10px;
+.footer-menus {
+  grid-column: 2/3;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  align-content: space-between;
+  @media (max-width: 720px) {
+    grid-column: span 3;
+    grid-template-columns: 1fr;
+    padding: 0px 20px;
   }
-  .info {
-    text-align: center;
-    @media (min-width: 340px) {
-    font-size: 14px;
-    }
-    @media (min-width: 768px) and (max-width:1366px) {
-    font-size: 16px;
-    }
-   @media (min-width: 1920px)  {
-      font-size: 16px;
-    }
-    line-height: 1.6;
-    
-  }
+}
 
-  .copyrights {
-    margin-top: 50px;
-  }
+.copyrights {
+  grid-column: 1/6;
+  text-align: center;
+}
 </style>

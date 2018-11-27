@@ -2,7 +2,9 @@
   <div>
     <main-navbar/>
     <main>
-      <router-view />
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
     </main>
     <main-footer />
   </div>
@@ -24,5 +26,11 @@ export default {
   main {
     padding-top: 65px;
     background: white;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+    opacity: 0;
   }
 </style>

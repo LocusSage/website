@@ -1,93 +1,125 @@
 <template>
-  <transition mode="out-in" name="fade">
-    <nav v-show="isShowing" class="flex align-center">
-      <div class="wrapper grid large-col-4">
-        <div class="span-3">
-          <ul class="menu left flex align-middle">
-            <li class="logo">
-              <router-link class="flex align-middle" :to="{name: 'Home'}">
-              <img class="image-logo" src="@/assets/logo/cloud-logo.svg" width="37.5px" alt="">
-              <span>MedCloud</span>
-            </router-link></li>
-            <li>Produtos</li>
-            <li><router-link :to="{name: 'Blog'}">Blog</router-link></li>
-            <li>Receba Atualizações</li>
-          </ul>
-        </div>
-        <div class="span-1 flex align-middle align-right">
-          <ul class="menu">
-            <li>Login</li>
-          </ul>
-        </div>
+  <nav class="grid-container">
+    <div class="inner flex align-justify visible-tablet-desktop">
+      <div class="left-menu">
+        <ul>
+         <router-link :to="{ name: 'Support' }"><li>MPS Cloud</li></router-link>
+         <a><li>Produtos</li></a>
+         <router-link :to="{ name: 'Blog' }"><li>Blog</li></router-link>
+        </ul>
       </div>
-    </nav>
-  </transition>
+      <div class="right-menu">
+        <ul>
+          <router-link :to="{ name: 'Support' }"><li>Suporte</li></router-link>
+          <a href=""><li>Login</li></a>
+        </ul>
+      </div>
+    </div>
+
+    <div class="inner visible-cellphone">
+      <div class="bar"><icon name="bars" scale="1.5"/></div>
+      <ul class="inner-ul-cellphone">
+        <router-link to=""><li>MPS</li></router-link>
+        <router-link to=""><li>Suporte</li></router-link>
+        <router-link to=""><li>Produtos</li></router-link>
+      </ul>
+    </div>
+  </nav>
 </template>
 <script>
 export default {
   name: 'main-navbar',
-  data () {
+  data: function () {
     return {
-      isShowing: true,
-      scrolled: 0,
-      lastScrolled: 0
-    }
-  },
-  mounted: function () {
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  destroyed: function () {
-    window.removeEventListener('scroll', this.handleScroll)
-  },
-  methods: {
-    handleScroll: function () {
-      this.scrolled = window.pageYOffset
-      if (this.scrolled <= this.lastScrolled) {
-        this.lastScrolled = window.pageYOffset
-        this.isShowing = true
-      } else {
-        this.lastScrolled = window.pageYOffset
-        this.isShowing = false
-      }
+      subMenuOpen: false
     }
   }
 }
 </script>
 <style scoped lang="scss">
+nav {
+  position: fixed;
+  width: 100%;
+  background: rgb(50,50,50);
+  z-index: 99;
+  height: 60px;
+}
 
-  nav {
-    position: fixed;
-    width: 100%;
-    background: white;
-    z-index: 99;
+.inner {
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  @media(max-width: 720px) {
+    grid-column: span 3;
+    padding: 0px 20px;
+  }
+}
+
+.bar {
+  color: rgb(245,245,245)
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  a {
+    color: rgb(245, 245, 245);
+    text-decoration: none;
+    li {
+      margin-right: 20px;
+    }
+    &:last-child li{
+      margin-right: 0px;
+    }
   }
 
-  .wrapper {
-    min-width: 980px;
-    width: 75%;
-    background: white;
-  }
+}
 
-  .menu.left li {
-    margin-right: 75px;
+.visible-tablet-desktop {
+  @media(max-width: 720px) {
+    display: none;
   }
+}
 
-  .logo span{
-    font-family: "Circular", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    margin-left: 10px;
-    color: var(--font-color)
-  }
+.inner-ul-cellphone {
+  margin-left: 20px;
+}
 
-  .image-logo {
-    display: block !important
+.visible-cellphone {
+  @media (min-width: 720px) {
+    display: none
   }
+}
 
-  .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
-    opacity: 0;
-  }
 </style>
+<!--
+<div class="inner-nav">
+      <div class="wrapper grid">
+        <div>
+          <ul class="menu left flex align-middle">
+            <li class="logo">
+              <router-link class="flex align-middle" :to="{name: 'Home'}">
+                <span>MPS Cloud</span>
+              </router-link>
+            </li>
+            <li @mouseover="subMenuOpen = true" @mouseout="subMenuOpen = false" class="with-submenu"><a href="#">Produtos</a>
+              <transition name="fadeInDown" mode="out-in">
+                <ol v-if="subMenuOpen" class="submenu">
+                  <li><router-link :to="{name: 'quasar'}">Quasar</router-link></li>
+                  <li><router-link to="">Talker</router-link></li>
+                </ol>
+              </transition>
+            </li>
+            <li><router-link :to="{name: 'Blog'}">Blog</router-link></li>
+            <li>Receba Novidades</li>
+          </ul>
+        </div>
+        <div class="span-1 flex align-middle align-right">
+          <ul class="menu">
+            <router-link :to="{name: 'Support'}"><li>Suporte</li></router-link>
+            <router-link to=""><li>Login</li></router-link>
+          </ul>
+        </div>
+      </div>
+    </div>
+    -->

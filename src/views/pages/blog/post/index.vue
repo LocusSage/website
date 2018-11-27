@@ -1,6 +1,6 @@
 <template>
   <div class="flex align-center">
-    <div class="wrapper">
+    <div class="wrapper-blog">
       <post/>
       <hr>
       <continue-reading/>
@@ -11,31 +11,49 @@
 
 import post from './components/post'
 import continueReading from './components/continue-reading'
+import store from '@/store'
 
 export default {
-
   components: {
     'post': post,
     'continue-reading': continueReading
   },
-  created: function (postId) {
-    this.$store.dispatch('blog:post:load-data', this.postId = this.$route.params.id)
+  beforeRouteEnter: async (to, from, next) => {
+    await store.dispatch('blog:post:load-data', to.params.id)
+      .then(reponse => next())
+      .catch(err => console.log(err))
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
-.wrapper{
-  @media (min-width: 340px) {
+.wrapper-blog{
+  @media (max-width: 768px){
     width: 90%;
   }
-  @media (max-width: 1920px ) and (min-width: 1366px) {
-    width: 50%;
-  }
+  width: 740px;
   background: white;
   margin-right: auto;
   margin-left: auto;
 }
 
+
+.post {
+  p {
+    color: rgb(50,50,50);
+    line-height: 1.6;
+    img {
+      width: 100%;
+      height: auto !important;
+      margin: 50px 0px;
+    }
+    strong {
+      display: block;
+      margin-top: 30px;
+      font-size: 1.618em;
+      color: rgb(200,200,200)
+    }
+  }
+}
 </style>

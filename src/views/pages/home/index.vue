@@ -1,28 +1,32 @@
 <template>
   <div>
-    <hero-header class="container" />
-    <div class="gray" style="background-color: rgb(240,240,240)">
-      <company-info class="container"/>
-    </div>
-    <our-numbers class="container" />
+    <hero-header />
+    <company-section />
+    <quasar-section />
+    <gamma-section />
+    <cloud-computing />
+    <tech-support />
   </div>
 </template>
 <script>
 import Hero from './components/hero'
-import CompanyInfo from './components/company-info'
-import OurNumbers from './components/our-numbers'
+import Company from './components/company'
+import Quasar from './components/quasar'
+import Gamma from './components/gamma'
+import CloudComputing from './components/cloud-computing'
+import TechSupport from './components/support'
 
 export default {
   components: {
     'hero-header': Hero,
-    'company-info': CompanyInfo,
-    'our-numbers': OurNumbers
+    'company-section': Company,
+    'quasar-section': Quasar,
+    'gamma-section': Gamma,
+    'cloud-computing': CloudComputing,
+    'tech-support': TechSupport
   }
 }
 </script>
 <style>
-.container {
-  width: 70%;
-  margin: 0 auto;
-}
+
 </style>
