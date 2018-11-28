@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: 12.5% auto 12.5%;
   @media(max-width: 720px) {
-    grid-template-columns: 20px auto 20px !important;
+    grid-template-columns: 20px calc(100vw - 40px) 20px !important;
   }
 }
 
@@ -60,7 +60,7 @@ a.router-link {
 
 html {
   font-size: 16px;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .hide-responsive {

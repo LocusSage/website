@@ -65,6 +65,7 @@ export default {
     'not-solved': NotSolved
   },
   mounted: async function () {
+    window.scrollTo(0,0)
     await this.$store.dispatch('support:fetch-single-post', { id: this.$route.params.id, name: this.$route.params.title })
     this.$store.dispatch('support:fetch-recommended-posts')
     this.$store.dispatch('support:save-recent-posts')
@@ -168,7 +169,17 @@ form {
     margin-left: 20px;
     border: 1px solid rgb(200,200,200);
     border-radius: 3px;
-    color: rgb(200,200,200)
+    color: rgb(200,200,200);
+    @media(max-width: 720px) {
+      margin-left: 0px;
+      width: 100%;
+    }
+  }
+
+  .flex {
+    @media(max-width: 720px) {
+      flex-direction: column;
+    }
   }
 }
 </style>

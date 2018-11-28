@@ -19,8 +19,8 @@
     <div class="inner visible-cellphone">
       <div class="bar"><icon name="bars" scale="1.5"/></div>
       <ul class="inner-ul-cellphone">
-        <router-link to=""><li>MPS</li></router-link>
-        <router-link to=""><li>Suporte</li></router-link>
+        <router-link :to="{name: 'Home'}"><li>MPS</li></router-link>
+        <router-link :to="{name: 'Support'}"><li>Suporte</li></router-link>
         <router-link to=""><li>Produtos</li></router-link>
       </ul>
     </div>
@@ -39,7 +39,7 @@ export default {
 <style scoped lang="scss">
 nav {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   background: rgb(50,50,50);
   z-index: 99;
   height: 60px;

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <section>
     <router-view></router-view>
-  </div>
+  </section>
 </template>
 <script>
 export default {
@@ -9,4 +9,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+section {
+  width: 100%;
+}
 </style>

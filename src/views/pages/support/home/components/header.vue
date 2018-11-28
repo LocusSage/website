@@ -85,11 +85,12 @@ h2 {
 }
 
 input{
-  background-repeat: 3px;
+  border-radius: 3px;
   font-size: 16px;
   min-height: 50px;
   border-radius: 5px;
   margin-bottom: 5px;
+  -webkit-appearance: none;
   @media(max-width: 1280px) {
     border-radius: 0px !important;
   }
